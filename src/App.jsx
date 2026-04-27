@@ -11,7 +11,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main className="main-area">
+      <main>
         <Sidebar />
         <Main />
       </main>

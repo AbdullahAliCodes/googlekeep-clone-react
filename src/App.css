@@ -5,9 +5,13 @@
   font-family: Roboto, arial, sans-serif;
 }
 
-.main-area {
+main {
   position: relative;
   top: 48px;
-  background-color: #202124;
+  background-color: blue;
   display: flex;
 }
+
+/* .main-area {
+  width: 100%;
+} */
