@@ -1,16 +1,22 @@
 import React from "react";
-import NotesGrid from "../Notes/NotesGrid";
 import TakeANote from "../Notes/TakeANote";
+import Note from "../Notes/Note";
+
 import "./Main.css";
 
-const Main = () => {
+const Main = (props) => {
+  const { notes } = props;
+
   return (
     <div className="main-section">
       <section className="take-a-note">
-        <TakeANote />
+        <TakeANote addNote={props.addNote} />
       </section>
       <section className="notes-grid">
-        <NotesGrid />
+        {notes.map((note) => {
+          // console.log(note);
+          return <Note key={note.id} note={note} />;
+        })}
       </section>
     </div>
   );

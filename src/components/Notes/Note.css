@@ -1,0 +1,21 @@
+.note-card {
+  width: 240px;
+  border: #9aa0a6 1px solid;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin: 16px;
+}
+
+.note-card-title {
+  padding: 16px 16px 0 16px;
+}
+
+.note-card-text {
+  padding: 12px 16px;
+}
+
+.note-card-footer {
+  margin: 4px 0;
+}

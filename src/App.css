@@ -8,10 +8,5 @@
 main {
   position: relative;
   top: 48px;
-  background-color: blue;
   display: flex;
 }
-
-/* .main-area {
-  width: 100%;
-} */

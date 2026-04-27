@@ -1,8 +1,13 @@
 .main-section {
   align-content: center;
-  background-color: red;
   width: 100%;
+  background-color: #202124;
+  color: #9aa0a6;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.notes-grid {
+  display: flex;
 }
