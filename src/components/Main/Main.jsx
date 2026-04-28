@@ -5,17 +5,28 @@ import Note from "../Notes/Note";
 import "./Main.css";
 
 const Main = (props) => {
-  const { notes } = props;
+  const { notes, isModalOpen, isActiveForm, setIsActiveForm } = props;
 
   return (
     <div className="main-section">
       <section className="take-a-note">
-        <TakeANote addNote={props.addNote} />
+        <TakeANote
+          addNote={props.addNote}
+          isModalOpen={isModalOpen}
+          isActiveForm={isActiveForm}
+          setIsActiveForm={setIsActiveForm}
+        />
       </section>
       <section className="notes-grid">
         {notes.map((note) => {
-          // console.log(note);
-          return <Note key={note.id} note={note} />;
+          return (
+            <Note
+              key={note.id}
+              note={note}
+              editNote={props.editNote}
+              isModalOpen={isModalOpen}
+            />
+          );
         })}
       </section>
     </div>

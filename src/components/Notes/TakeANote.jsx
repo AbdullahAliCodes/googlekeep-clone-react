@@ -4,13 +4,12 @@ import { uid } from "uid";
 import "./TakeANote.css";
 
 const TakeANote = (props) => {
-  const { addNote } = props;
+  const { addNote, isModalOpen, isActiveForm, setIsActiveForm } = props;
 
-  const [isActiveForm, setIsActiveForm] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
-  const openActiveNoteHandler = () => {
+  const activeNoteHandler = () => {
     if (!isActiveForm) {
       setIsActiveForm(true);
     }
@@ -31,7 +30,7 @@ const TakeANote = (props) => {
 
   return (
     <div className="take-a-note">
-      <div onClick={openActiveNoteHandler} className="form-container">
+      <div onClick={activeNoteHandler} className="form-container">
         <form className={isActiveForm ? "form-active" : "form-inactive"}>
           {isActiveForm && (
             <input
