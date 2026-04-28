@@ -22,6 +22,8 @@ const TakeANote = (props) => {
     if (isActiveForm) {
       setIsActiveForm(false);
     }
+    setTitle("");
+    setText("");
   };
 
   const titleChangeHandler = (event) => setTitle(event.target.value);
