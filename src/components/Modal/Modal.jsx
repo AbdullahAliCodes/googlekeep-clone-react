@@ -3,9 +3,9 @@ import TakeANote from "../Notes/TakeANote";
 
 import "./Modal.css";
 
-if (isModalOpen) {
-  setIsActiveForm(true);
-}
+// if (isModalOpen) {
+//   setIsActiveForm(true);
+// }
 
 const Modal = (props) => {
   const { isModalOpen, setIsActiveForm } = props;
