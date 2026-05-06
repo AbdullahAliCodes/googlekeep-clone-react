@@ -3,14 +3,17 @@ import React from "react";
 import "./Note.css";
 
 const Note = (props) => {
-  const { note, isModalOpen } = props;
+  const { note, setSelectedNote, setIsModalOpen, setIsActiveForm } = props;
 
-  const noteClickHandler = () => {
-    props.editNote(note);
+  const selectedNoteHandler = () => {
+    setSelectedNote(note);
+    setIsModalOpen(true);
+    setIsActiveForm(true);
+    console.log("SELECTED: ", note);
   };
 
   return (
-    <div className="note-card" onClick={noteClickHandler}>
+    <div className="note-card" onClick={selectedNoteHandler}>
       <div className="note-card-header">
         <div className="note-card-title">{note.title}</div>
         <div className="note-card-text">{note.text}</div>

@@ -8,12 +8,14 @@ import Modal from "./components/Modal/Modal";
 import "./App.css";
 
 function App() {
+  const [selectedNote, setSelectedNote] = useState({});
+  const [isActiveForm, setIsActiveForm] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [notes, setNotes] = useState([
     { id: uid(), title: "First Note", text: "First Note Text" },
     { id: uid(), title: "Second Note", text: "Second Note Text" },
   ]);
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  const [isActiveForm, setIsActiveForm] = useState(false);
 
   const addNote = (note) => {
     setNotes((prevNotes) => {
@@ -21,9 +23,12 @@ function App() {
     });
   };
 
-  const editNote = (note) => {
-    console.log("Note clicked", note.id);
+  const toggleModal = () => {
+    setIsActiveForm((prevState) => !prevState);
+    setIsModalOpen((prevState) => !prevState);
   };
+
+  const editNote = (note) => {};
 
   return (
     <>
@@ -35,15 +40,15 @@ function App() {
         <Main
           notes={notes}
           addNote={addNote}
-          editNote={editNote}
-          isModalOpen={isModalOpen}
+          setSelectedNote={setSelectedNote}
           isActiveForm={isActiveForm}
           setIsActiveForm={setIsActiveForm}
+          setIsModalOpen={setIsModalOpen}
         />
         <Modal
+          editNote={editNote}
+          selectedNote={selectedNote}
           isModalOpen={isModalOpen}
-          isActiveForm={isActiveForm}
-          setIsActiveForm={setIsActiveForm}
         />
       </main>
     </>

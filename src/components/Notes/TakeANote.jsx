@@ -4,18 +4,13 @@ import { uid } from "uid";
 import "./TakeANote.css";
 
 const TakeANote = (props) => {
-  const { addNote, isModalOpen, isActiveForm, setIsActiveForm } = props;
+  const { addNote, isActiveForm, setIsActiveForm } = props;
 
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
-  const activeNoteHandler = () => {
-    if (!isActiveForm) {
-      setIsActiveForm(true);
-    }
-  };
-
-  const closeActiveNoteHandler = () => {
+  const closeActiveNoteHandler = (event) => {
+    event.preventDefault();
     const noteToAdd = { id: uid(), title, text };
     addNote(noteToAdd);
     if (isActiveForm) {
@@ -25,12 +20,21 @@ const TakeANote = (props) => {
     setText("");
   };
 
+  const openActiveNote = () => {
+    setIsActiveForm(true);
+  };
+
+  const submitFormHandler = () => {
+    const note = { id: uid(), title, text };
+    editNote();
+  };
+
   const titleChangeHandler = (event) => setTitle(event.target.value);
   const textChangeHandler = (event) => setText(event.target.value);
 
   return (
     <div className="take-a-note">
-      <div onClick={activeNoteHandler} className="form-container">
+      <div className="form-container" onClick={openActiveNote}>
         <form className={isActiveForm ? "form-active" : "form-inactive"}>
           {isActiveForm && (
             <input

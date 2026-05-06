@@ -5,14 +5,19 @@ import Note from "../Notes/Note";
 import "./Main.css";
 
 const Main = (props) => {
-  const { notes, isModalOpen, isActiveForm, setIsActiveForm } = props;
+  const {
+    notes,
+    setSelectedNote,
+    isActiveForm,
+    setIsActiveForm,
+    setIsModalOpen,
+  } = props;
 
   return (
     <div className="main-section">
       <section className="take-a-note">
         <TakeANote
           addNote={props.addNote}
-          isModalOpen={isModalOpen}
           isActiveForm={isActiveForm}
           setIsActiveForm={setIsActiveForm}
         />
@@ -23,8 +28,9 @@ const Main = (props) => {
             <Note
               key={note.id}
               note={note}
-              editNote={props.editNote}
-              isModalOpen={isModalOpen}
+              setSelectedNote={setSelectedNote}
+              setIsModalOpen={setIsModalOpen}
+              setIsActiveForm={setIsActiveForm}
             />
           );
         })}
